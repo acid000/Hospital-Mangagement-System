@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consult with our doctors</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <style>
+      *{
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+      }
+        .card{
+              box-shadow: 0px 0px 20px 0px #aaa;
+              
+          }
+          img{
+            height: 7rem;
+          }
+          body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+      </style>
+</head>
+<body>
+    {%load static%}
+    <div class="container mt-3">
+        <div class="row ">
+           <div class="col">
+               <div class="card" style="width: 18rem;">
+                   <img src="{% static '\images\appointment.jpg'%}" class="card-img-top" alt="Doctor image" >
+                   <div class="card-body">
+                     <h5 class="card-title">Book Appointment</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                     <a href="/patient" class="btn btn-warning">Book</a>
+                   </div>
+               </div>
+           </div>
+           <div class="col">
+               <div class="card" style="width: 18rem;">
+                   <img src="{% static '\images\consult.jfif'%}" class="card-img-top" alt="operation theatre" >
+                   <div class="card-body">
+                     <h5 class="card-title">Consult Online</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                     <a href="/payment_for_consult" class="btn btn-warning">Consult</a>
+                   </div>
+               </div>
+           </div>
+           <div class="col ">
+               <div class="card" style="width: 18rem;">
+                   <img src="{% static '\images\patient.jfif'%}" class="card-img-top" alt="Ambulance" >
+                   <div class="card-body">
+                     <h5 class="card-title">View Health Report</h5>
+                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                     <a href="#" class="btn btn-warning">Show Report</a>
+                   </div>
+               </div>
+           </div>
+           <div class="col mt-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static '\images\medicine.jfif'%}" class="card-img-top" alt="Ambulance" >
+                <div class="card-body">
+                  <h5 class="card-title">Buy Medicine</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="/medicine" class="btn btn-warning">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mt-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static '\images\patient.jfif'%}" class="card-img-top" alt="Ambulance" >
+                <div class="card-body">
+                  <h5 class="card-title">Ask!!!</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="/ask" class="btn btn-warning">Show Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col mt-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{% static '\images\patient.jfif'%}" class="card-img-top" alt="Ambulance" >
+                <div class="card-body">
+                  <h5 class="card-title">Pay</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-warning">Show Details</a>
+                </div>
+            </div>
+        </div>
+        </div>
+     </div>
+</body>
+</html>

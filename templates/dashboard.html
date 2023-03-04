@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dash Board</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <style>
+      .card{
+            box-shadow: 0px 0px 20px 0px #aaa;
+            
+        }
+    </style>
+  </head>
+  <body>
+    {%load static%}
+    <nav class="nav bg-dark justify-content-center align-items-center text-color-warning">
+      <a class="nav-link text-warning" aria-current="page" href="#">Welcome {{request.user.first_name}}</a>
+    
+    </nav>
+  
+    <div class="container mt-3">
+      <div class="row">
+         <div class="col">
+             <div class="card" style="width: 18rem;">
+                 <img src="{% static '\images\doctor.jpg'%}" class="card-img-top" alt="Doctor image" style="height: 20rem;">
+                 <div class="card-body">
+                   <h5 class="card-title">Need a Doctor ?</h5>
+                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   <a href="/doctor" class="btn btn-warning">Show Details</a>
+                 </div>
+             </div>
+         </div>
+         <div class="col">
+             <div class="card" style="width: 18rem;">
+                 <img src="{% static '\images\operation_ward.jpg'%}" class="card-img-top" alt="operation theatre" style="height: 20rem;">
+                 <div class="card-body">
+                   <h5 class="card-title">Wards</h5>
+                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   <a href="#" class="btn btn-warning disabled">Show</a>
+                 </div>
+             </div>
+         </div>
+         <div class="col">
+             <div class="card" style="width: 18rem;">
+                 <img src="{% static '\images\ambulance.jpg'%}" class="card-img-top" alt="Ambulance" style="height: 20rem;">
+                 <div class="card-body">
+                   <h5 class="card-title">Ambulances</h5>
+                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                   <a href="#" class="btn btn-warning">Call Now</a>
+                 </div>
+             </div>
+         </div>
+      </div>
+   </div>
+  </body>
+</html>

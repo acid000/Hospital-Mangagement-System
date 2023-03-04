@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Checkout</title>
+      <style>
+           
+  </style>
+  </head>
+  <body>
+  {% load static %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">X Cart</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/medicine">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+    </nav>
+<div class="container">
+  <div class="col my-4">
+<h2>Review Your Items</h2>
+<div >
+    <ol class="list-group list-group-numbered" id="items">
+
+</ol>
+  <h5 style="font-style:italic">Your Cart Total is <b> RS: <span id="itemprice"></span></b></h5>
+</div>
+</div>
+  <div class="col my-4">
+    <h2>Enter Your Details:</h2>
+    <form class="row g-3" action="" method="post">{% csrf_token %}
+      <div class="col-md-6">
+        <input type="hidden" id="item_json" name="item_json">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" id="name" name="name">
+  </div>
+  <div class="col-md-6">
+    <label for="Email" class="form-label">Email</label>
+    <input type="email" class="form-control" id="Email" name="email">
+  </div>
+
+  <div class="col-12">
+    <label for="Address" class="form-label">Address</label>
+    <input type="text" class="form-control" id="Address" placeholder="1234 Main St" name="address">
+  </div>
+  <div class="col-md-6">
+    <label for="City" class="form-label">City</label>
+    <input type="text" class="form-control" id="City" name="city">
+  </div>
+  <div class="col-md-4">
+    <label for="State" class="form-label">State</label>
+    <input type="text" class="form-control" id="state" name="state">
+  </div>
+  <div class="col-md-2">
+    <label for="Zip" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="Zip" name="zip">
+  </div>
+      <div class="col-12">
+    <label for="phone" class="form-label">phone</label>
+    <input type="tel" class="form-control" id="phone" name="phone">
+  </div>
+  <div class="col-md-2">
+    <label for="pay" class="form-label">Pay</label>
+    <input type="text" class="form-control" id="pay" name="pay">
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="gridCheck">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Place Order</button>
+  </div>
+</form>
+
+  </div>
+</div>
+   <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<script>
+var price=0;
+    if (localStorage.getItem('cart')==null){
+       var cart={};
+      }
+      else{
+      cart=JSON.parse(localStorage.getItem('cart'))
+
+      }
+    for(item in cart){
+      let name=cart[item][1];
+      let qty=cart[item][0];
+      let totalprice=cart[item][2];
+       price=price+qty*totalprice;
+     mystr=`<li class="list-group-item d-flex justify-content-between align-items-start">
+           <div class="ms-2 me-auto">
+              <div class="fw-bold">
+                  ${name}
+                  </div>
+                   </div>
+                  <span class="badge bg-primary rounded-pill">${qty}</span>
+              </li>`
+            $('#items').append(mystr);
+    }
+     document.getElementById('itemprice').innerHTML=price;
+     document.getElementById('pay').value=price;
+    $('#item_json').val(JSON.stringify(cart));
+ 
+  // alert('Thanks for shopping with us !... Your order id is {{id}}')
+   localStorage.clear();
+ //  document.location="/shop";
+ 
+
+</script>
